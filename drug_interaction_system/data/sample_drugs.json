@@ -1,0 +1,35 @@
+{
+  "sample_prescriptions": [
+    {
+      "text": "Patient prescribed paracetamol 500mg every 6 hours and ibuprofen 200mg every 8 hours for pain management",
+      "expected_drugs": [
+        {"name": "paracetamol", "dosage": "500mg", "frequency": "every 6 hours"},
+        {"name": "ibuprofen", "dosage": "200mg", "frequency": "every 8 hours"}
+      ]
+    },
+    {
+      "text": "Take warfarin 5mg daily and aspirin 75mg once daily for cardiovascular protection",
+      "expected_drugs": [
+        {"name": "warfarin", "dosage": "5mg", "frequency": "daily"},
+        {"name": "aspirin", "dosage": "75mg", "frequency": "once daily"}
+      ]
+    }
+  ],
+  "test_interactions": [
+    {
+      "drugs": ["warfarin", "aspirin"],
+      "expected_severity": "HIGH",
+      "description": "Increased bleeding risk"
+    },
+    {
+      "drugs": ["metformin", "alcohol"],
+      "expected_severity": "MEDIUM", 
+      "description": "Risk of lactic acidosis"
+    }
+  ],
+  "age_groups": {
+    "pediatric": {"age": 8, "drugs": ["paracetamol", "ibuprofen"]},
+    "adult": {"age": 35, "drugs": ["paracetamol", "ibuprofen"]},
+    "elderly": {"age": 75, "drugs": ["paracetamol", "ibuprofen"]}
+  }
+}
